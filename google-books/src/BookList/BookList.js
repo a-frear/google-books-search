@@ -8,9 +8,9 @@ function BookList(props){
       <ul className="bookmarkList">
         { props.bookResults.map((book) => 
                 <Book 
-                key={book.id}
+                key={book.etag}
                 title={book.volumeInfo.title} 
-                img={book.volumeInfo.imageLinks.thumbnail} 
+                img={book.volumeInfo.imageLinks?.thumbnail} 
                 author={book.volumeInfo.authors} 
                 description={book.volumeInfo.description}/>
             )

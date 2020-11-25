@@ -40,7 +40,8 @@ class App extends Component {
   handleSubmit(e) {
       e.preventDefault();
       let filter = (this.state.bookType!=="no-filter")? ("&filter="+this.state.bookType):"";
-      let url = `https://www.googleapis.com/books/v1/volumes?q=${this.state.searchTerm}&printType=${this.state.printType}`+filter+`&key=AIzaSyAUGotAa2AhEEGPu7PX4QATuJxHEShuuio`;
+      let key = 'AIzaSyAUGotAa2AhEEGPu7PX4QATuJxHEShuuio';
+      let url = `https://www.googleapis.com/books/v1/volumes?q=${this.state.searchTerm}&printType=${this.state.printType}${filter}&key=${key}`;
     
     fetch(url)
         .then(results => {
@@ -64,6 +65,7 @@ class App extends Component {
     }
  
   render(){
+    console.log(this.state);
     return (
       <main className='app'>
         <h1>Google Books Search</h1>
